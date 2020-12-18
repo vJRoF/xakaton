@@ -1,6 +1,6 @@
 using System;
 
-namespace zakupki_gov
+namespace Purchases
 {
     public class WeatherForecast
     {
