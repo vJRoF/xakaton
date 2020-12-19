@@ -20,7 +20,7 @@ namespace Pumps
                 foreach (var directory in directories)
                 {
                     var s = Files(directory);
-                    foreach (var file in s.Where(f => f.file.Contains("orderClause")))
+                    foreach (var file in s.Where(f => f.file.Contains("_purchaseContract_")))
                     {
                         DownloadFile(file.directory, file.file);
                     }
@@ -45,7 +45,7 @@ namespace Pumps
 
             using FtpWebResponse response = (FtpWebResponse)request.GetResponse();
             using Stream responseStream = response.GetResponseStream();
-            using var fileStream = File.OpenWrite(@$"C:\Temp\ftp\{file}");
+            using var fileStream = File.OpenWrite(@$"C:\Temp\ftp\purchaseContract\{file}");
             responseStream.CopyTo(fileStream);
         }
 

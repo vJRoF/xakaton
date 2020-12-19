@@ -15,5 +15,10 @@ namespace Purchases.DataAccess
 
         public PuchaseSource PuchaseSource { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
+        public decimal Sum { get; set; }
+        public string SupplierName { get; set; }
+        public string SupplierINN { get; set; }
+
+        public Guid LoadID { get; set; }
     }
 }

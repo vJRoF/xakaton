@@ -4,14 +4,16 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Purchases.Migrations
 {
     [DbContext(typeof(PurchasesContext))]
-    partial class PurchasesContextModelSnapshot : ModelSnapshot
+    [Migration("20201219093621_ExtendPurchase")]
+    partial class ExtendPurchase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,17 +37,11 @@ namespace Purchases.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("LoadID")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("PuchaseSource")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Sum")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("SupplierINN")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SupplierName")
                         .HasColumnType("nvarchar(max)");
