@@ -8,6 +8,8 @@ namespace DataAccess
     {
         public DbSet<Purchase> Purchases { get; set; }
 
+        public DbSet<Preset> Presets { get; set; }
+
         public PurchasesContext(DbContextOptions<PurchasesContext> options)
             : base(options)
         {
