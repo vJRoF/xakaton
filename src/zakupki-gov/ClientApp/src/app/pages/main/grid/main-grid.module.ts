@@ -10,6 +10,8 @@ import { DateInputModule, DatePickerModule, DateRangeModule } from '@progress/ke
 import { FormsModule } from '@angular/forms';
 import { MessageService } from '@progress/kendo-angular-l10n';
 import { CustomKendoMessageService } from '../../../core/misc/custom-kendo-message.service';
+import { LoaderModule } from '@progress/kendo-angular-indicators';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { CustomKendoMessageService } from '../../../core/misc/custom-kendo-messa
     FormsModule,
     DatePickerModule,
     ExcelModule,
-    PDFModule
+    PDFModule,
+    LoaderModule,
+    ButtonsModule
   ]
 })
 export class MainGridModule { }

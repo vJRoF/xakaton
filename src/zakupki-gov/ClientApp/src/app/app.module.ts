@@ -10,6 +10,8 @@ import { registerLocaleData } from '@angular/common';
 
 import localeRu from '@angular/common/locales/ru';
 import '@progress/kendo-angular-intl/locales/ru/all';
+import { IndicatorsModule } from '@progress/kendo-angular-indicators';
+
 
 registerLocaleData(localeRu);
 
@@ -21,7 +23,8 @@ registerLocaleData(localeRu);
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    IndicatorsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'ru-RU' }

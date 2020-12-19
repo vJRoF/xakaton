@@ -1,3 +1,16 @@
+<div class="k-loading-panel" *ngIf="excelIsLoading$ | async">
+  <div class="k-loading-panel-mask"></div>
+  <div class="k-loading-panel-wrapper">
+    <kendo-loader
+      [type]="'infinite-spinner'"
+      [themeColor]="'info'"
+      [size]="'large'"
+    >
+    </kendo-loader>
+    <div class="k-loading-panel-text">Загрузка...</div>
+  </div>
+</div>
+
 <kendo-grid [data]="gridDataRes$ | async"
             [pageSize]="state.take"
             [skip]="state.skip"
@@ -10,10 +23,11 @@
             (dataStateChange)="dataStateChange($event)"
             style="height: 100vh;">
   <ng-template kendoGridToolbarTemplate>
-    <button type="button" kendoGridExcelCommand icon="file-excel">Экспортировать в Excel</button>
+    <button type="button" kendoButton icon="file-excel" (click)="exportToExcel()">Экспортировать в Excel</button>
   </ng-template>
   <kendo-grid-column field="description" title="Описание"></kendo-grid-column>
   <kendo-grid-column field="customerName" title="Заказчик"></kendo-grid-column>
+  <kendo-grid-column field="supplierName" title="Исполнитель"></kendo-grid-column>
   <kendo-grid-column field="createdDate" title="Дата создания" format="{0:dd.MM.yyyy}">
     <ng-template kendoGridFilterMenuTemplate let-filter let-column="column" let-filterService="filterService">
       <app-date-range-filter
@@ -39,5 +53,12 @@
       <a style="color: blue" [href]="dataItem.url" target="_blank">{{ dataItem.url }}</a>
     </ng-template>
   </kendo-grid-column>
-  <kendo-grid-excel fileName="Zakupki.xlsx"></kendo-grid-excel>
+  <!--<kendo-grid-excel fileName="Zakupki.xlsx"></kendo-grid-excel>-->
 </kendo-grid>
+
+<!--<kendo-loader
+  [type]="'converging-spinner'"
+  [themeColor]="'info'"
+  [size]="'medium'"
+>
+</kendo-loader>-->

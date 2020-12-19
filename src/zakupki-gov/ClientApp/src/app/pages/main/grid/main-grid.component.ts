@@ -28,6 +28,10 @@ export class MainGridComponent implements OnInit {
     return this._gridDataService.gridDataRes$;
   }
 
+  get excelIsLoading$(): Observable<boolean> {
+    return this._gridDataService.excelIsLoading$;
+  }
+
   ngOnInit(): void {
   }
 
@@ -38,5 +42,9 @@ export class MainGridComponent implements OnInit {
 
   private loadItems(): void {
     this._gridDataService.getGridDataList(this.state);
+  }
+
+  public exportToExcel(): void {
+    this._gridDataService.exportToExcel(this.state);
   }
 }
