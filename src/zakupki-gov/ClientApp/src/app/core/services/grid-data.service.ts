@@ -28,7 +28,7 @@ export class GridDataService {
           total: res.total,
           aggregates: res.aggregates,
           data: res.data.map(d => {
-            d.createdDate = new Date(d.createdAt);
+            d.createdAt = new Date(d.createdAt);
             return d;
           })
         };

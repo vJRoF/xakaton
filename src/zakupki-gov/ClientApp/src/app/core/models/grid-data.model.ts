@@ -10,8 +10,7 @@ export interface  IGridDataList {
   url?: string;
   customerName?: string;
   puchaseSource?: string;
-  createdAt: string;
-  createdDate: Date;
+  createdAt: Date | string;
   sum: number;
   supplierName?: string;
   supplierINN?: string;

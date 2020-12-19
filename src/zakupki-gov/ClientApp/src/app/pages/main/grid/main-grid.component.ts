@@ -69,6 +69,8 @@ export class MainGridComponent implements OnInit, OnDestroy {
         group: JSON.stringify(state.group)
       }
     });
+    /*this.state = state;
+    this.loadItems();*/
   }
 
   private _transformFilters(filters: Array<CompositeOrSimpleFilter>): void {
