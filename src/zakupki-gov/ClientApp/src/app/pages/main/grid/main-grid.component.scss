@@ -2,6 +2,13 @@
   overflow: hidden;
 }
 
+.url-link {
+  color: blue;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 /* Loader Panel Styles */
 .k-loading-panel {
   display: flex;
