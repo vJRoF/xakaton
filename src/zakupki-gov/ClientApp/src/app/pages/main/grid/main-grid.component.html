@@ -36,7 +36,7 @@
   <kendo-grid-column field="puchaseSource" title="Источник покупки"></kendo-grid-column>
   <kendo-grid-column field="url" title="URL адрес">
     <ng-template kendoGridCellTemplate let-dataItem>
-      <a style="color: blue" [href]="dataItem.url">{{ dataItem.url }}</a>
+      <a style="color: blue" [href]="dataItem.url" target="_blank">{{ dataItem.url }}</a>
     </ng-template>
   </kendo-grid-column>
   <kendo-grid-excel fileName="Zakupki.xlsx"></kendo-grid-excel>
