@@ -1,18 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DataAccess;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Purchases.DataAccess;
 using System.Net.Http;
 using System.Threading.Tasks;
-using DataAccess;
-using Purchases.DataAccess;
+using Kendo.Mvc.Extensions;
+using Kendo.Mvc.UI;
 
 namespace Purchases.Controllers
 {
     [Route("api/purchases")]
     [ApiController]
-    public class PurchasesController : ControllerBase
+    public class PurchasesController : Controller
     {
         private readonly PurchasesContext _purchasesContext;
 
@@ -23,9 +21,11 @@ namespace Purchases.Controllers
         }
 
         [HttpGet("list")]
-        public Purchase[] GetList()
+        [Produces(typeof(DataSourceResultModel<Purchase>))]
+        public DataSourceResult GetList([DataSourceRequest] DataSourceRequest request)
         {
-            return _purchasesContext.Purchases.ToArray();
+            var result = _purchasesContext.Purchases.ToDataSourceResult(request);
+            return result;
         }
 
         [HttpGet("ip")]
