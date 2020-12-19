@@ -1,0 +1,21 @@
+
+kendo-daterange {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.k-button {
+  height: 100%;
+  padding: 6px 6px 13px 6px;
+  min-width: 37px;
+}
+
+.range-filter {
+  width:85px;
+  max-width: 85px;
+  &:first-child {
+    margin-right: 4px;
+  }
+}

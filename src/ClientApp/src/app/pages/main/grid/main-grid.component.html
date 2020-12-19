@@ -1,7 +1,43 @@
-<kendo-grid [data]="products" [navigable]="true"
+<kendo-grid [data]="gridDataRes$ | async"
+            [pageSize]="state.take"
+            [skip]="state.skip"
+            [sort]="state.sort"
+            [filter]="state.filter"
+            [sortable]="true"
+            [pageable]="true"
+            [filterable]="true"
+            [navigable]="true"
+            (dataStateChange)="dataStateChange($event)"
             style="height: 100vh;">
-  <kendo-grid-column field="ProductName" title="Product Name"></kendo-grid-column>
-  <kendo-grid-column field="UnitsInStock" title="Units In Stock"></kendo-grid-column>
-  <kendo-grid-column field="UnitsOnOrder" title="Units On Order"></kendo-grid-column>
-  <kendo-grid-column field="ReorderLevel" title="Reorder Level"></kendo-grid-column>
+  <ng-template kendoGridToolbarTemplate>
+    <button type="button" kendoGridExcelCommand icon="file-excel">Экспортировать в Excel</button>
+  </ng-template>
+  <kendo-grid-column field="description" title="Описание"></kendo-grid-column>
+  <kendo-grid-column field="customerName" title="Заказчик"></kendo-grid-column>
+  <kendo-grid-column field="createdDate" title="Дата создания" format="{0:dd.MM.yyyy}">
+    <ng-template kendoGridFilterMenuTemplate let-filter let-column="column" let-filterService="filterService">
+      <app-date-range-filter
+        [field]="column.field"
+        [filter]="filter"
+        [filterService]="filterService">
+      </app-date-range-filter>
+    </ng-template>
+
+    <ng-template kendoGridFilterCellTemplate let-filter let-column="column">
+      <app-date-range-filter-cell
+        class="date-range-filter"
+        [filter]="filter"
+        [field]="column.field">
+      </app-date-range-filter-cell>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="sum" title="Сумма" filter="numeric" format="{0:n}"></kendo-grid-column>
+  <kendo-grid-column field="supplierINN" title="ИНН"></kendo-grid-column>
+  <kendo-grid-column field="puchaseSource" title="Источник покупки"></kendo-grid-column>
+  <kendo-grid-column field="url" title="URL адрес">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <a style="color: blue" [href]="dataItem.url">{{ dataItem.url }}</a>
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-excel fileName="Zakupki.xlsx"></kendo-grid-excel>
 </kendo-grid>

@@ -1,0 +1,19 @@
+<kendo-daterange>
+  <kendo-dateinput
+    placeholder="С..."
+    class="range-filter"
+    kendoDateRangeStartInput
+    [(ngModel)]="start"
+    (valueChange)="filterRange($event, end)"
+    data-test-lc="grid-range-filter-cell__from">
+  </kendo-dateinput>
+
+  <kendo-dateinput
+    placeholder="По..."
+    class="range-filter"
+    kendoDateRangeEndInput
+    [(ngModel)]="end"
+    (valueChange)="filterRange(start, $event)"
+    data-test-lc="grid-range-filter-cell__to">
+  </kendo-dateinput>
+</kendo-daterange>

@@ -1,0 +1,20 @@
+<div class="k-form">
+  <label class="k-form-field">
+    <kendo-datepicker (valueChange)="onStartChange($event)"
+                      [(ngModel)]="start" [max]="max" [popupSettings]="popupSettings" placeholder="С..." data-test-lc="grid-range-filter__from">
+      <kendo-datepicker-messages
+        today="Сегодня"
+        toggle="Изменить"
+      ></kendo-datepicker-messages>
+    </kendo-datepicker>
+  </label>
+  <label class="k-form-field">
+    <kendo-datepicker (valueChange)="onEndChange($event)"
+                      [(ngModel)]="end" [min]="min" [popupSettings]="popupSettings" placeholder="По..." data-test-lc="grid-range-filter__to">
+      <kendo-datepicker-messages
+        today="Сегодня"
+        toggle="Изменить"
+      ></kendo-datepicker-messages>
+    </kendo-datepicker>
+  </label>
+</div>
